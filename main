@@ -1,0 +1,11 @@
+from redis import Redis
+from rq import Queue, Worker
+from rq import Connection, Worker
+redis = Redis(host='192.168.16.66', port=6379, db=0)
+q = Queue('low', connection=redis)
+# Start a worker with a custom name
+worker = Worker([q], connection=redis, name='nvie')
+job = q.fetch_job('my_job_id')
+print(job.get_status())
+
+
