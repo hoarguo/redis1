@@ -7,5 +7,6 @@ q = Queue('low', connection=redis)
 worker = Worker([q], connection=redis, name='nvie')
 job = q.fetch_job('my_job_id')
 print(job.get_status())
+print(job.get_status())
 
 

@@ -7,8 +7,7 @@ import redis
 r = redis.Redis(host='localhost', port=16379, db=1)
 
 addr = "C001"
-
-while True:    
+while True:
     try:
         lsA = [False,False,False,False,False,False,False,False]
         lsB = [True,]
@@ -18,7 +17,7 @@ while True:
         carActuate = random.choice(lsB)  #判斷有無車輛觸動
         pedOnRoad = random.choice(lsC)   #判斷有無行人在路中
         carOnRoad = random.choice(lsD)   #判斷有無車輛在路口
-        
+
         if addr == "D002":
             addr = "D001"
         else:
